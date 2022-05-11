@@ -1,24 +1,37 @@
-const express = require("express")
-const cors = require("cors")
-const plantsRouter = require("./plants/plants-router")
+require("dotenv").config();
 
-const server = express()
+const express = require("express");
+const cors = require("cors");
+const helmet = require("helmet");
+const session = require("express-session");
 
-server.use(cors())
-server.use(express.json())
+const plantsRouter = require("./routers/plants-router");
+const usersRouter = require("./routers/users-router");
+const welcomeRouter = require("./routers/welcome-router");
 
-server.use("/api/plants", plantsRouter)
-server.get("/", (req, res) => {
-    res.json({
-        message: "Welcome to the Plant API!",
-    })
-})
+const server = express();
+
+server.use(helmet());
+server.use(cors());
+server.use(express.json());
+server.use(
+  session({
+    resave: false,
+    saveUninitialized: false,
+    secret: process.env.JWT_SECRET,
+  })
+);
+
+server.use("/", welcomeRouter);
+server.use("/users");
+server.use("/plants", plantsRouter);
 
 server.use((err, req, res, next) => {
-    console.log(err)
-    res.status(500).json({
-        message: "Something went wrong with retrieving your plants, try again later",
-    })
-})
+  console.log(err);
+  res.status(500).json({
+    message:
+      "Something went wrong with retrieving your plants, try again later",
+  });
+});
 
-module.exports = server
+module.exports = server;
