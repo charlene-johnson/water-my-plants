@@ -3,7 +3,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import { BrowserRouter } from "react-router-dom";
 import theme from "./ui/Theme";
 import NavigationOut from "./ui/NavigationOut";
-import NavigationIn from "./ui/NavigationIn";
+// import NavigationIn from "./ui/NavigationIn";
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
