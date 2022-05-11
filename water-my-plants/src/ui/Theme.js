@@ -35,5 +35,8 @@ export default createTheme({
       fontSize: "4.5rem",
       textTransform: "none",
     },
+    subtitle2: {
+      fontFamily: "Jaldi"
+    }
   },
 });

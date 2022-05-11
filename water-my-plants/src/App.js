@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import theme from "./ui/Theme";
 import NavigationOut from "./ui/NavigationOut";
 // import NavigationIn from "./ui/NavigationIn";
+import Footer from "./ui/Footer";
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -18,6 +19,8 @@ function App() {
           selectedIndex={selectedIndex}
           setSelectedIndex={setSelectedIndex}
         />
+        <div>Meow</div>
+        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   );
