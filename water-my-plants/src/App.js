@@ -19,7 +19,8 @@ function App() {
           selectedIndex={selectedIndex}
           setSelectedIndex={setSelectedIndex}
         />
-        <div>Meow</div>
+        {/* placeholder */}
+        <div>Meow</div> 
         <Footer />
       </BrowserRouter>
     </ThemeProvider>
